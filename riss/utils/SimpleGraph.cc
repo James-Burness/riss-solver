@@ -362,7 +362,7 @@ vector<double> SimpleGraph::getDistances(int nod)
     adjacencyList& adj = node[nod];
     double tmpdistance;
 
-    for (int x = 0; x < size; x++) { distance[x] = numeric_limits<double>::infinity(); } //distance to all nodes = inf
+    for (int x = 0; x < size; x++) { distance[x] = std::numeric_limits<double>::infinity(); } //distance to all nodes = inf
 
     distance[nod] = 0;
     visited.setCurrentStep(nod);
@@ -407,7 +407,7 @@ double SimpleGraph::getDiameter()  //TODO: Elias: Maybe there are faster algorit
 double SimpleGraph::getRadius()
 {
 
-    double radius = numeric_limits<double>::infinity();
+    double radius = std::numeric_limits<double>::infinity();
     double ex;
     for (int i = 0; i < size; ++i) {
         ex = getExzentricity(i);
@@ -424,7 +424,7 @@ double SimpleGraph::getExzentricity(int nod)
     double max = 0;
 
     for (int j = 0; j < distance.size(); ++j) {
-        if (distance[j] == numeric_limits<double>::infinity()) { continue; }
+        if (distance[j] == std::numeric_limits<double>::infinity()) { continue; }
         if (distance[j] > max) { max = distance[j]; }
     }
 
